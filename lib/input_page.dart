@@ -202,12 +202,11 @@ class InputPageState extends State<InputPage> {
                             ),
                             RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
-                                onPress: (){
+                                onPress: () {
                                   setState(() {
                                     age++;
                                   });
-                                }
-                            ),
+                                }),
                           ],
                         ),
                       ],
@@ -219,10 +218,10 @@ class InputPageState extends State<InputPage> {
           ),
           //Bottom app bar
           GestureDetector(
-            onTap: (){
+            onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context){
+                MaterialPageRoute(builder: (context) {
                   return ResultsPage();
                 }),
               );
@@ -232,7 +231,12 @@ class InputPageState extends State<InputPage> {
               margin: const EdgeInsets.only(top: 10.0),
               width: double.infinity,
               height: kBottomContainerHeight,
-              child: Text('CALCULATOR'),
+              child: Center(
+                child: Text(
+                  'CALCULATOR',
+                  style: kLargeButtonTextStyle,
+                ),
+              ),
             ),
           ),
         ],
