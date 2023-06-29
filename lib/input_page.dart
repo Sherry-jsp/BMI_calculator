@@ -17,6 +17,7 @@ class InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int height = 180;
   int weight = 50;
+  int age = 18;
 
   @override
   Widget build(BuildContext context) {
@@ -133,6 +134,9 @@ class InputPageState extends State<InputPage> {
                           weight.toString(),
                           style: kNumberTextStyle,
                         ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -162,7 +166,49 @@ class InputPageState extends State<InputPage> {
                   ),
                 ),
                 Expanded(
-                  child: ReusableCard(colour: kActiveBoxColor),
+                  child: ReusableCard(
+                    colour: kActiveBoxColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'AGE',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPress: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
+                            const SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPress: (){
+                                  setState(() {
+                                    age++;
+                                  });
+                                }
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
