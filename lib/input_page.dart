@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const bottomContainerHeight = 50.0;
+const boxColor = Color(0xFF1D1E33);
+const bottomContainerColor = Color(0xFFEB1555);
+
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
 
@@ -21,28 +25,34 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: [
                   Expanded(
-                    child: ReusableCard(colour:Color(0xFF1D1E33)),
+                    child: ReusableCard(colour:boxColor),
                   ),
                   Expanded(
-                    child: ReusableCard(colour:Color(0xFF1D1E33)),
+                    child: ReusableCard(colour:boxColor),
                   ),
                 ],
               ),
             ),
             Expanded(
-              child:ReusableCard(colour:Color(0xFF1D1E33)),
+              child:ReusableCard(colour:boxColor),
             ),
             Expanded(
               child: Row(
                 children: [
                   Expanded(
-                    child: ReusableCard(colour:Color(0xFF1D1E33)),
+                    child: ReusableCard(colour:boxColor),
                   ),
                   Expanded(
-                    child: ReusableCard(colour:Color(0xFF1D1E33)),
+                    child: ReusableCard(colour:boxColor),
                   ),
                 ],
               ),
+            ),
+            Container(
+              color: Color(0xFFEB1555),
+              margin: EdgeInsets.only(top: 10.0),
+              width: double.infinity,
+              height: bottomContainerHeight,
             ),
           ],
         ),
@@ -54,7 +64,7 @@ class _InputPageState extends State<InputPage> {
 class ReusableCard extends StatelessWidget {
   ReusableCard({required this.colour}); //constructor
 
-  Color colour;
+  final Color colour;
 
   @override
   Widget build(BuildContext context) {
