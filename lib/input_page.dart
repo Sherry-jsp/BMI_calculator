@@ -20,25 +20,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Color maleCardColor = inactiveBoxColor;
   Color femaleCardColor = inactiveBoxColor;
-
-  void updateColor(Gender selectedGender) {
-    if (selectedGender == Gender.male) {
-      if (maleCardColor == inactiveBoxColor) {
-        maleCardColor = activeBoxColor;
-        femaleCardColor =inactiveBoxColor;
-      } else {
-        maleCardColor = inactiveBoxColor;
-      }
-    }
-    if(selectedGender == Gender.female){
-      if(femaleCardColor == inactiveBoxColor){
-        femaleCardColor = activeBoxColor;
-        maleCardColor = inactiveBoxColor;
-      }else{
-        femaleCardColor = inactiveBoxColor;
-      }
-    }
-  }
+  Gender? selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -56,11 +38,11 @@ class _InputPageState extends State<InputPage> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          updateColor(Gender.male);
+                          selectedGender = Gender.male;
                         });
                       },
                       child: ReusableCard(
-                        colour: maleCardColor,
+                        colour: selectedGender==Gender.male ? activeBoxColor : inactiveBoxColor,
                         cardChild: IconContent(
                           icon: FontAwesomeIcons.mars,
                           label: 'MALE',
@@ -71,11 +53,11 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     child: GestureDetector(onTap: (){
                       setState(() {
-                        updateColor(Gender.female);
+                        selectedGender = Gender.female;
                       });
                     },
                       child: ReusableCard(
-                        colour: femaleCardColor,
+                        colour: selectedGender==Gender.female? activeBoxColor : inactiveBoxColor,
                         cardChild: IconContent(
                           icon: FontAwesomeIcons.venus,
                           label: 'FEMALE',
