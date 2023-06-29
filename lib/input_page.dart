@@ -28,6 +28,7 @@ class InputPageState extends State<InputPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          //Male or Female
           Expanded(
             child: Row(
               children: [
@@ -66,6 +67,7 @@ class InputPageState extends State<InputPage> {
               ],
             ),
           ),
+          //Slider height
           Expanded(
             child: ReusableCard(
               colour: kActiveBoxColor,
@@ -117,6 +119,7 @@ class InputPageState extends State<InputPage> {
               ),
             ),
           ),
+          //Button weight and age
           Expanded(
             child: Row(
               children: [
@@ -213,6 +216,7 @@ class InputPageState extends State<InputPage> {
               ],
             ),
           ),
+          //Bottom app bar
           Container(
             color: kBottomContainerColor,
             margin: const EdgeInsets.only(top: 10.0),
