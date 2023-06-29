@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'icon_content.dart';
-import 'reusable_card.dart';
-import 'constants.dart';
+import '../components/icon_content.dart';
+import '../components/reusable_card.dart';
+import '../constants.dart';
 import 'results_page.dart';
+import '../components/bottom_button.dart';
+import '../components/round_icon.dart';
 
 enum Gender { male, female }
 
@@ -217,27 +219,16 @@ class InputPageState extends State<InputPage> {
             ),
           ),
           //Bottom app bar
-          GestureDetector(
+          BottomButton(
+            buttonTitle: 'CALCULATE',
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) {
-                  return ResultsPage();
-                }),
+                MaterialPageRoute(
+                  builder: (context) => ResultsPage(),
+                ),
               );
             },
-            child: Container(
-              color: kBottomContainerColor,
-              margin: const EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              child: Center(
-                child: Text(
-                  'CALCULATOR',
-                  style: kLargeButtonTextStyle,
-                ),
-              ),
-            ),
           ),
         ],
       ),
@@ -245,24 +236,3 @@ class InputPageState extends State<InputPage> {
   }
 }
 
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({required this.icon, required this.onPress});
-
-  final IconData icon;
-  final void Function()? onPress;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      elevation: 0.0,
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
-      onPressed: onPress,
-      child: Icon(icon),
-    );
-  }
-}
